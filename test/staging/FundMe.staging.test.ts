@@ -35,10 +35,6 @@ developmentChains.includes(network.name)
               const endingFundMeBalance = await fundMe.provider.getBalance(
                   fundMe.address
               )
-              console.log(
-                  endingFundMeBalance.toString() +
-                      " should equal 0, running assert equal..."
-              )
 
               // Assert
               assert.equal(endingFundMeBalance.toString(), "0")

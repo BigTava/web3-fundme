@@ -6,12 +6,10 @@ async function main() {
     const { deployer } = await getNamedAccounts()
     const fundMe: FundMe = await ethers.getContract("FundMe", deployer)
 
-    console.log("Funding Contract")
-    const transactionResponse: ContractTransaction = await fundMe.fund({
-        value: ethers.utils.parseEther("0.1"),
-    })
+    console.log("Funding...")
+    const transactionResponse: ContractTransaction = await fundMe.withdraw()
     await transactionResponse.wait(1)
-    console.log("Funded!")
+    console.log("Got it back!")
 }
 
 main()
